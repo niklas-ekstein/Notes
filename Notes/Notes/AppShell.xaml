@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Notes.Views" xmlns:controls="clr-namespace:Notes"
+       Shell.FlyoutHeaderTemplate="{StaticResource FlyoutHeaderTemplate}"
+       x:Class="Notes.AppShell"
+       BackgroundColor="White"
+       ForegroundColor="Black"
+       TitleColor="Black"
+       DisabledColor="Purple"
+       UnselectedColor="Gray">
+
+    <!--<Shell.Resources>
+        -->
+    <!-- Style Shell elements -->
+    <!--
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource AppPrimaryColor}" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="{StaticResource SecondaryColor}" />
+            <Setter Property="Shell.TitleColor"
+                    Value="{StaticResource SecondaryColor}" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+                    Value="#95FFFFFF"/>
+        </Style>
+        <Style TargetType="TabBar"
+               BasedOn="{StaticResource BaseStyle}" />
+    </Shell.Resources>-->
+
+
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#FEFEFE</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.UnselectedColor" Value="#757575" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#Black" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#757575" />
+                <Setter Property="Shell.TabBarTitleColor" Value="Black" />
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <DataTemplate x:Key="FlyoutHeaderTemplate">
+                <ContentView BackgroundColor="White" HeightRequest="90">
+                    <Grid BackgroundColor="White">
+                        <Image Source="new_icon.png" WidthRequest="55" HeightRequest="55"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label Text="Playa del Carmen"
+                       TextColor="Black"
+                       FontSize="Title"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                    </Grid>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.SearchHandler>
+        <SearchHandler Query="{Binding Query}"
+                       SearchBoxVisibility="Expanded"
+                       Placeholder="Search tasks"/>
+        <!--<controls:AnimalSearchHandler Placeholder="Enter search term"
+                                      ShowsResults="true"
+                                      DisplayMemberName="Name" />-->
+    </Shell.SearchHandler>
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+    </ShellItem>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+
+        <ShellContent Title="" Route="NoteEntryPage"
+                      ContentTemplate="{DataTemplate views:NoteEntryPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                FontFamily="FontAwesome5Solid"
+                Glyph="&#xf0ac;"
+                Color="Black"
+                Size="24">
+                </FontImageSource>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Title="" Route="NotesPage"
+                      ContentTemplate="{DataTemplate views:MapPage}" >
+            <ShellContent.Icon>
+                <FontImageSource
+                FontFamily="FontAwesome5Solid"
+                Glyph="&#xf3c5;"
+                Color="Black"
+                Size="24">
+                </FontImageSource>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="" Route="NotesPage"
+                      ContentTemplate="{DataTemplate views:NotesPage}" >
+            <ShellContent.Icon>
+                <FontImageSource
+                FontFamily="FontAwesome5Solid"
+                Glyph="&#xf075;"
+                Color="Black"
+                Size="24">
+                </FontImageSource>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Title="" Route="AboutPage"
+                      ContentTemplate="{DataTemplate views:AboutPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                FontFamily="FontAwesome5Solid"
+                Glyph="&#xf007;"
+                Color="Black"
+                Size="24">
+                </FontImageSource>
+            </ShellContent.Icon>
+        </ShellContent>
+
+    </FlyoutItem>
+
+    <MenuItem Text="Photos" Command="{Binding NavigateCommand}" CommandParameter="photos" IconImageSource="icon_about.png"/>
+    <MenuItem Text="Photos" Command="{Binding NavigateCommand}" CommandParameter="photos" IconImageSource="icon_feed.png"/>
+
+
+    <!--The following code changes the space in the flyout meny, or at least should..-->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*">
+                <Image Source="{Binding Icon}"
+                       Margin="4"
+                       VerticalOptions="CenterAndExpand"
+                       HeightRequest="30" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*">
+                <Image Source="{Binding Icon}"
+                       Margin="4"
+                       VerticalOptions="CenterAndExpand"
+                       HeightRequest="30" />
+                <Label Grid.Column="1"
+                       Text="{Binding Text}"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+
+
+    <!--Display a bottom tab bar containing two tabs-->
+    <!--<TabBar>
+        <ShellContent Title="Notes"
+                      Icon="icon_feed.png"
+                      ContentTemplate="{DataTemplate views:NotesPage}" />
+        <ShellContent Title="About"
+                      Icon="icon_about.png"
+                      ContentTemplate="{DataTemplate views:AboutPage}" />
+    </TabBar>-->
+</Shell>

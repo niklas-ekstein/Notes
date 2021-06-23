@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Notes.Views.RegistrationPage2"
+             xmlns:controls="clr-namespace:Notes.Controls" 
+             xmlns:local="clr-namespace:Notes.Renderer" 
+             BackgroundColor="White">
+
+    <Shell.TitleView>
+        <Grid BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+
+            <Button class="btn"
+                    HorizontalOptions="Start"
+                    Visual="Default"
+                    Text=""
+                    Clicked="Button_Clicked"
+                    BackgroundColor="White"
+                    TextColor="Black" Grid.Column="2" Grid.Row="0">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="FontAwesome5Solid"
+                        Glyph="&#xf234;"
+                        Size="18"
+                        Color="Black" />
+                </Button.ImageSource>
+            </Button>
+
+            <StackLayout HorizontalOptions="Start"
+                 VerticalOptions="CenterAndExpand"
+                 BackgroundColor="White" Grid.Row="0" Grid.Column="1" >
+                <Label Text="Sign up" TextColor="Black" FontSize="Title" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Margin="0,20" Spacing="0">
+            <Grid BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Button class="btn" x:Name="BCountry" Grid.Row="0" Grid.ColumnSpan="2"
+                    HorizontalOptions="Start"
+                    Visual="Default"
+                    Text=""
+                    Clicked="Button_Clicked"
+                    BackgroundColor="White"
+                    TextColor="LightGray">
+                    <Button.ImageSource>
+                        <FontImageSource
+                        FontFamily="FontAwesome5Solid"
+                        Glyph="&#xf57d;"
+                        Size="Large"
+                        Color="LightGray" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Picker x:Name="CommonCountriesList" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start"
+                    Title="       Select country     "
+                    Margin="0, 0, 0, 0"
+                    ItemsSource="{Binding CommonCountriesList}"
+                    ItemDisplayBinding="{Binding CountryName}"/>
+
+
+
+
+
+
+                <Button class="btn" x:Name="BDate" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="1"
+                    HorizontalOptions="End"
+                    Visual="Default"
+                    Text=""
+                    Clicked="Button_Clicked"
+                    TextColor="LightGray">
+                    <Button.ImageSource>
+                        <FontImageSource
+                        FontFamily="FontAwesome5Solid"
+                        Glyph="&#xf1fd;"
+                        Size="Large"
+                        Color="LightGray" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!--Extended date picker, custom rendered-->
+                <local:ExtendedDatePicker Grid.Column="1" Grid.Row="1"/>
+
+
+
+
+
+                <Button class="btn" x:Name="BGender" Grid.Column="0" Grid.Row="2"
+                    HorizontalOptions="End"
+                    Visual="Default"
+                    Text=""
+                    Clicked="Button_Clicked"
+                    BackgroundColor="White"
+                    TextColor="Black">
+                    <Button.ImageSource>
+                        <FontImageSource
+                        FontFamily="FontAwesome5Solid"
+                        Glyph="&#xf228;"
+                        Size="Large"
+                        Color="Black" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button x:Name="B1"
+                    Text="FEMALE" TextColor="Black" Grid.Column="1" Grid.Row="2"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
+                Clicked="Button_Clicked" />
+
+
+
+
+                <Button x:Name="B2"
+                        Text="Male" TextColor="Black" Grid.Column="1" Grid.Row="2"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="End"
+                        Clicked="Button_Clicked2" />
+
+
+                <yummy:PancakeView Grid.Row="4" Grid.ColumnSpan="5"  Margin="20, 0, 20, 0"
+                    >
+                    <Button class="btn" Opacity="0.8"
+                                    Visual="Default"
+                                    Text="Finished"
+                                
+                                Clicked="Button_Clicked"
+                                    BackgroundColor="Green"
+                                    TextColor="White">
+                        <!--<Button.ImageSource>
+                                <FontImageSource
+                                            FontFamily="FontAwesome5Solid"
+                                            Glyph="&#xf234;"
+                                            Size="16"
+                                            Color="White" />
+                            </Button.ImageSource>-->
+
+                    </Button>
+                </yummy:PancakeView>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

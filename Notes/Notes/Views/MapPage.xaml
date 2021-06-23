@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:Notes.Views;assembly=Notes" 
+             xmlns:local1="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
+             xmlns:local2="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="Notes.Views.MapPage">
+
+
+    <Grid>
+        <local:CustomMap x:Name="customMap"
+                     MapType="Street" >
+
+            <!--<x:Arguments>
+                <local1:MapSpan>
+                    <x:Arguments>
+                        <local1:Position>
+                            <x:Arguments>
+                                <x:Double>17.7640158</x:Double>
+                                <x:Double>-90.3009449</x:Double>
+                            </x:Arguments>
+                        </local1:Position>
+                        <x:Double>8</x:Double>
+                        <x:Double>8</x:Double>
+                    </x:Arguments>
+                </local1:MapSpan>
+            </x:Arguments>-->
+
+        </local:CustomMap>
+
+
+
+    </Grid>
+</ContentPage>

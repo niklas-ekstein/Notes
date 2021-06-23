@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Fonts\FontAwesome5BrandsRegular.otf" />
+    <None Remove="Views\Fonts\FontAwesome5Regular.otf" />
+    <None Remove="Views\Fonts\FontAwesome5Solid.otf" />
+    <None Remove="Views\Fonts\Lato-Black.ttf" />
+    <None Remove="Views\Fonts\Lato-Bold.ttf" />
+    <None Remove="Views\Images\guitar1.jpg" />
+    <None Remove="Views\Images\guitar2.jpg" />
+    <None Remove="Views\Images\guitar3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Fonts\FontAwesome5BrandsRegular.otf" />
+    <EmbeddedResource Include="Views\Fonts\FontAwesome5Regular.otf" />
+    <EmbeddedResource Include="Views\Fonts\FontAwesome5Solid.otf" />
+    <EmbeddedResource Include="Views\Fonts\Lato-Black.ttf" />
+    <EmbeddedResource Include="Views\Fonts\Lato-Bold.ttf" />
+    <EmbeddedResource Include="Views\Images\guitar1.jpg" />
+    <EmbeddedResource Include="Views\Images\guitar2.jpg" />
+    <EmbeddedResource Include="Views\Images\guitar3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AsyncAwaitBestPractices" Version="5.1.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
+    <PackageReference Include="Xamarin.Forms.DualScreen" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />  
+    <PackageReference Include="Xamarin.Forms.GoogleMaps.Clustering" Version="1.1.0" />  
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />  
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\NotesPage.xaml.cs">
+      <DependentUpon>NotesPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Global.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MyPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NoteEntryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NotesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegistrationPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="Notes.Views.NotesPage"
+             Title="Notes">
+
+    <Grid>
+        <map:Map x:Name="MyMap" MapType="Street" HasZoomEnabled="True" IsShowingUser="true">
+            <x:Arguments>
+                <map:MapSpan>
+                    <x:Arguments>
+                        <map:Position>
+                            <x:Arguments>
+                                <x:Double>17.7640158</x:Double>
+                                <x:Double>-90.3009449</x:Double>
+                            </x:Arguments>
+                        </map:Position>
+                        <x:Double>8</x:Double>
+                        <x:Double>8</x:Double>
+                    </x:Arguments>
+                </map:MapSpan>
+            </x:Arguments>
+
+            <map:Map.Pins>
+                <map:Pin Label="Playa del Carmen"
+                       Address="The city with a boardwalk"
+                       Type="Place">
+                    <map:Pin.Position>
+                        <map:Position>
+                            <x:Arguments>
+                                <x:Double>20.6537778</x:Double>
+                                <x:Double>-87.1417369</x:Double>
+                            </x:Arguments>
+                        </map:Position>
+                    </map:Pin.Position>
+                </map:Pin>
+
+                <!--<map:Pin Label="Santa Cruz"
+                       Address="The city with a boardwalk"
+                       Type="Place">
+                    <map:Pin.Position>
+                        <map:Position>
+                            <x:Arguments>
+                                <x:Double>20.2096165</x:Double>
+                                <x:Double>-87.5068955</x:Double>
+                            </x:Arguments>
+                        </map:Position>
+                    </map:Pin.Position>
+                </map:Pin>-->
+
+            </map:Map.Pins>
+
+
+            <map:Map.ItemTemplate>
+                <DataTemplate>
+                    <map:Pin Position="{Binding Position}"
+                              Address="{Binding Address}"
+                              Label="{Binding PlaceName}" />
+                </DataTemplate>
+            </map:Map.ItemTemplate>
+        </map:Map>
+    </Grid>
+
+</ContentPage>
